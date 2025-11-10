@@ -9,13 +9,32 @@ body {
 
     }
 /*video bg*/
-#bg-video {
-    position: fixed; /* ตรึงติดกับหน้าต่าง */
-    inset: 0;  /* top/right/bottom/left = 0 */
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* เติมเต็มพอดี ไม่บิดภาพ */
-    z-index: -2; /* ให้อยู่หลังข้อความอื่น */
+/* ===== YouTube Background Video ===== */
+.video-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2; /* ให้อยู่หลังสุด */
+}
+
+.video-foreground {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* ป้องกันการคลิกโดนวิดีโอ */
+}
+
+.video-foreground iframe {
+  width: 100vw;
+  height: 56.25vw; /* 16:9 ratio */
+  min-height: 100vh;
+  min-width: 177.77vh; /* 16:9 ratio */
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
 /* จัด container ให้อยู่กลางจอ */
 .container {
@@ -317,3 +336,4 @@ body {
 .schedule tbody tr:nth-child(odd){
   background: rgba(255,255,255,.04);
 }
+
