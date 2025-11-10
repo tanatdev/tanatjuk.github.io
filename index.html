@@ -12,9 +12,16 @@
 
 <body>
     <!-- วิดีโอพื้นหลัง -->
-    <video id="bg-video" autoplay muted loop playsinline>
-        <source src="<iframe width="560" height="315" src="https://www.youtube.com/embed/Hgg7M3kSqyE?si=3VGl9yCh_3qclD5n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>" type="video/mp4">
-    </video>
+    <div class="video-background">
+  <div class="video-foreground">
+    <iframe 
+      src="https://www.youtube.com/embed/Hgg7M3kSqyE?autoplay=1&mute=1&loop=1&playlist=Hgg7M3kSqyE&controls=0&showinfo=0&modestbranding=1"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
     <!-- ชั้นทับเพื่อดิมพื้นหลังให้อ่านง่าย -->
     <div class="video-overlay"></div>
     <!-- การ์ดแก้วตรงกลาง -->
@@ -139,4 +146,5 @@
 
 
 </html>
+
 
