@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abou Me</title>
+    <meta name="description" content="เว็บไซต์แรกของฉัน">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- วิดีโอพื้นหลัง -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="./assets/techbg.mp4" type="video/mp4">
+    </video>
+    <!-- ชั้นทับเพื่อดิมพื้นหลังให้อ่านง่าย -->
+    <div class="video-overlay"></div>
+    <!-- การ์ดแก้วตรงกลาง -->
+    <main class="container">
+        <section class="glass-card" id="profile-card">
+            <img class="avatar" src="./assets/crop_profile.png" alt="รูปโปรไฟล์">
+            <h1 class="title">
+                <span class="sparkle-wrap">
+                    SE4DEV
+                    <img src="./assets/whitesparkle.gif" alt="" class="sparkles" aria-hidden="true">
+                </span>
+            </h1>
+            <p class="subtitle">Hello! This Is Website About Me!!</p>
+
+            <!-- socials -->
+            <div class="socials">
+                <a href="https://www.youtube.com/@SE4DEV" class="icon" aria-label="Youtube" target="_blank"><i
+                        class="fa-brands fa-youtube"></i></a>
+                <a href="https://github.com/tanatdev" class="icon" aria-label="GitHub" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.tiktok.com/@tanat_.06" class="icon" aria-label="TikTok" target="_blank"><i
+                        class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <div class="discord-card">
+                <div class="discord-header">
+                    <div class="dc-left">
+                        <div class="avatar-wrap">
+                            <img class="discord-avatar" src="./assets/redprofile.jfif" alt="profile">
+                            <span class="status-dot online" aria-hidden="true"></span>
+                        </div>
+                        <div class="dc-info">
+                            <div class="discord-name">@RED</div>
+                        </div>
+                    </div>
+
+                    <!-- ขวา: ปุ่ม -->
+                    <a class="add-btn" href="https://discord.com/users/1180837938582532189" target="_blank"
+                        rel="noopener">
+                        Add on Discord &#8594;
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ========== Bio / About Me Section ========== -->
+    <section class="glass-card bio-card" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="bio-grid">
+            <!-- left สรุป info/pic -->
+            <aside class="bio-side">
+                <img class="bio-photo" src="./assets/Tanat Pic.jpg" alt="Tanatjuk Nokphrom Photo">
+                <ul class="facts">
+                    <li><strong>Name : </strong>Tanatjuk Nokphrom</li>
+                    <li><strong>ID : </strong>68074384</li>
+                    <li><strong>Major: </strong> Computer Science</li>
+                    <li><strong>Interests: </strong>Full-Stack, AI, Economic, Trading, History</li>
+                    <li><strong>Email: </strong> tanatjuK.nok@spumail.net</li>
+                </ul>
+            </aside>
+            <!-- right สรุป info/pic -->
+            <article class="bio-main">
+                <p>
+                    Hello! I’m Tanatjuk Nokphrom, a first-year Computer Science student.
+                    This project is the very first piece I’m publishing on my GitHub —
+                    my very first website, built with a foundation in HTML and CSS.
+                    I hope you’ll enjoy exploring it as much as I enjoyed creating it.
+                </p>
+                <p class="bio-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Figma</span>
+                </p>
+            </article>
+        </div>
+    </section>
+    <!-- Video -->
+    <section class="video-grid" id="myvideo">
+        
+        
+  <h2 class="video-title">Watch The Video</h2>
+  <iframe
+    class="video-test"
+    src="./assets/me.mp4"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</section>
+    </section>
+    <section class="schedule">
+        <h2>ตารางเรียน</h2>
+        <table class=border="1px" cellpadding="15" align="center">
+            <thead>
+                <th>ระดับการศึกษา</th>
+                <th>สถานศึกษา</th>
+                <th>แผนการเรียน/สาขา</th>
+                <th>ปีที่สำเร็จการศึกษา</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ชั้นมัธยมศึกษา</td>
+                    <td>โรงเรียนนครนายกวิทยาคม</td>
+                    <td>แผนการเรียนรู้วิทยาศาสตร์ คณิตศาสตร์ และภาษาอังกฤษ(IEP)</td>
+                    <td>2568</td>
+                </tr>
+                <tr>
+                    <td>ปริญญาตรี</td>
+                    <td>มหาวิทยาลัยศรีปทุม</td>
+                    <td>วิทยาการคอมพิวเตอร์</td>
+                    <td>กำลังศึกษา</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>© 2025 Tanatjuk Nokphrom.</p>
+    </footer>
+</body>
+
+</html>
