@@ -1,0 +1,319 @@
+/*ทดสอบการเชื่อม CSS*/
+body {
+    background: black; /*black background*/
+    color: white;       /*white text*/
+    font-family: Arial, sans-serif; /*font*/
+    text-align: center;     /* set text at center */
+    margin-top: 60px;      /* เว้นด้านบน 100px*/
+    overflow-y: auto;   /* เลื่อนแนวตั้งได้ */
+
+    }
+/*video bg*/
+#bg-video {
+    position: fixed; /* ตรึงติดกับหน้าต่าง */
+    inset: 0;  /* top/right/bottom/left = 0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* เติมเต็มพอดี ไม่บิดภาพ */
+    z-index: -2; /* ให้อยู่หลังข้อความอื่น */
+}
+/* จัด container ให้อยู่กลางจอ */
+.container {
+    min-height: 100vh;
+    display: flex; /* เปิดโหมด flex เปลี่ยนพฤติกรรมของลูกจากการไหลแบบธรรมดา → จัดเรียงตามแกน (row/column) */
+    justify-content: center; /* ใช้คู่กับ display: flex; จัดเรียงตาม แนวหลัก */
+    align-items: center; /* ใช้คู่กับ display: flex; จัดเรียงตาม แนวขวาง */
+    padding: 20px; /* ระยะห่างด้านใน ระหว่าง content ↔ border */
+}
+/* การ์ดแก้ว (โปรไฟล์/การ์ดทั่วไป) */
+.glass-card{
+  width: 550px;     /* เดิม ~900px → ขยายเป็น 1100px บนจอใหญ่ */
+  height: 450px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 30px;          /* มุมมนขึ้นเล็กน้อยให้ดูพรีเมียม */
+  padding: 10px;                /* เดิม ~28px → เพิ่มพื้นที่หายใจให้เท่าขนาดใหม่ */
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+  margin-top: -100px;
+}
+
+/* โปรไฟล์ */
+.avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /*ครอป ส่วนเกินออก แต่ยังคงสัดส่วนเดิม*/
+    border-radius: 50%; 
+    margin-bottom: 10px; /* ระยะห่างล่าง */
+    margin-top: 10px; /* ระยะห่างบน */
+    border: 1px solid rgba(255,255,255,0.3);
+}
+/* ชื่อ */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    position: relative; /* “ตัวจริง” ยังอยู่ที่เดิม แต่ “ภาพ” ถูกเลื่อน */
+    display: flex; /* เปิดโหมด flex เปลี่ยนพฤติกรรมของลูกจากการไหลแบบธรรมดา → จัดเรียงตามแกน (row/column) */
+    justify-content: center; /* จัดการ display ทำให้อยู่ตำแหน่งต่างๆ */
+}
+/* กรอบรองข้อความ + ประกาย */
+.sparkle-wrap{
+  position: relative;
+  display: inline-block; /* กล่องเรียงกันในบรรทัดเดียว และยังปรับขนาดได้ */
+  padding: 0 .25em;            /* กันประกายถูกตัดขอบ */
+  
+}
+/* ชั้นประกาย */
+.sparkles {
+  position: absolute; /*บอก element ให้ หลุดออกจากการจัดวางปกติ แล้วจัดตำแหน่งด้วย top, left, right, bottom*/
+  top: 0;
+  left: 0;
+  width: 100%;      /* ให้พอดีกับขอบข้อความ */
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* ให้มันเป็น “เอฟเฟกต์ตกแต่ง” อย่างเดียว ไม่บังการกดปุ่มหรือข้อความ */
+  mix-blend-mode: screen; /* ทำให้ element “สว่างขึ้น” โดยผสมกับ background */
+  opacity: 0.9;
+  filter: blur(.2px);
+  animation: sparkFloat 6s ease-in-out infinite alternate; /* เคลื่อนไหวช้า ๆ ขึ้น-ลง วนไปเรื่อย ๆ */
+}
+/* ขยับประกายนุ่มๆ (ไม่บังคับ แต่ช่วยให้ดูมีชีวิต) */
+@keyframes sparkFloat{
+  0%   { transform: translateY(0) scale(1); } /* ที่จุดเริ่ม (0%)อยู่ตำแหน่งเดิม ขนาดปกติ */
+  100% { transform: translateY(-6%) scale(1.03); } /*ที่จุดจบ (100%)   ขยับขึ้น -6% และขยายเล็กน้อย (1.03 เท่า)*/
+}
+
+/* tagline */
+.subtitle {
+    margin-top: 8px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+}
+/* กล่องรวมปุ่ม */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* ระยะห่างระหว่างลูก 12px */
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+/* ปุ่มแต่ละอัน */
+.icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 8px 20px rgba(0,0,0,.35);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+/* ไอคอนข้างใน */
+.icon i {
+  font-size: 18px;
+}
+
+/* เอฟเฟกต์ hover */
+.icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(255,255,255,0.25);
+}
+/* ระยะห่างระหว่างการ์ดบน/ล่าง */
+#profile-card { margin-bottom: 22px; }
+
+/* การ์ด About Me */
+.bio-card {
+  text-align: center;                     /* เนื้อหาอ่านง่าย */
+  width: min(900px, 92vw);
+  padding: 22px 22px 28px; 
+  padding-bottom: 100px;
+  margin: auto;
+}
+
+.section-title {
+  margin: 0 0 14px;
+  font-size: bold ;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-left: 60px;
+}
+
+/* โครง คอลัมน์ */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;     /* ซ้ายคงที่ 260px ขวากว้างที่เหลือ */
+  gap: 18px;
+}
+
+/* คอลัมน์ซ้าย */
+.bio-side {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 16px;
+  padding: 17px;
+}
+
+.bio-photo {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+  margin-bottom: 12px;
+}
+
+.facts {
+  list-style: none; padding: 0; margin: 0;
+}
+.facts li {
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.15);
+}
+.facts li:last-child { border-bottom: 0; }
+.facts strong { color: #fff; }
+
+/* คอลัมน์ขวา */
+.bio-main {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 16px;
+  padding: 16px;
+  color: rgba(255,255,255,.92);
+}
+.bio-main p { margin: 0 0 12px; }
+
+/* แท็กทักษะ */
+.bio-tags { margin-top: 8px; }
+.tag {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  margin-right: 8px; margin-bottom: 6px;
+  font-size: 12px;
+}
+
+/* มือถือ/จอเล็ก: เปลี่ยนเป็น 1 คอลัมน์ */
+@media (max-width: 680px) {
+  .bio-grid { grid-template-columns: 1fr; }
+}
+.discord-card {
+  background: rgba(0,0,0,0.6);
+  border-radius: 30px;
+  padding: 15px;
+  color: white;
+  font-family: sans-serif;
+  width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.discord-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+/* กลุ่มซ้าย: รูป + ชื่อ */
+.dc-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* รูป + จุดสถานะซ้อนทับ */
+.avatar-wrap{
+  position:relative;
+  display:inline-block;
+}
+
+.discord-avatar{
+  width:60px; height:60px; border-radius:50%; object-fit:cover;
+}
+
+/* จุดสถานะทับมุมขวาล่างของรูป */
+.status-dot{
+  position:absolute;
+  right:0; bottom:0;
+  width:14px; height:14px;
+  border-radius:50%;
+  background:#43b581;         /* สีเขียวออนไลน์ */
+  border:2px solid #0a0a0a;    /* ขอบเข้มกันกลืน */
+}
+.status-dot.online{ background:#43b581; }
+
+.dc-info{ display:flex; flex-direction:column; justify-content:center; }
+.discord-name{ font-weight:700; font-size:18px; }
+
+/* ปุ่มด้านขวา คงเดิมได้ ถ้าอยากนุ่มขึ้นใส่ hover ได้ */
+.add-btn {
+  background:#0a0a0a;
+  padding:10px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+  font-size:.95rem;
+  transition:transform .18s ease, filter .18s ease;
+}
+
+.video-grid {
+  width: 70%; /* หรือจะใช้ px ก็ได้ เช่น 1000px */
+  max-width: 1000px;
+  margin: 80px auto; /* จัดให้อยู่ตรงกลาง */
+  background: rgba(255, 255, 255, .08);
+  backdrop-filter: blur(14px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 30px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+  padding: 20px;
+  text-align: center;
+}
+
+.video-test {
+  width: 80%;           /* ปรับให้แคบลง เหลือ 80% ของกรอบ */
+  max-width: 640px;     /* ไม่ให้เกิน 640px */
+  height: 360px;        /* ลดความสูงให้สมส่วน */
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+.video-title{
+  text-align: center;
+  font-weight: bold;
+}
+.schedule{
+  margin: 100px auto;
+  width: min(900px, 92vw);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+  color: #fff;
+}
+.schedule h2{ text-align:center; margin: 0 0 14px; }
+
+.schedule table{ width:100%; border-collapse: collapse; }
+.schedule th, .schedule td{
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 10px;
+  text-align: center;
+}
+.schedule th{
+  background: rgba(255,255,255,.12);
+  font-weight: 800;
+}
+.schedule tbody tr:nth-child(odd){
+  background: rgba(255,255,255,.04);
+}
